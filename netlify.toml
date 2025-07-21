@@ -10,7 +10,6 @@ headers = []
 publish = "."
 publishOrigin = "config"
 commandOrigin = "config"
-base = "/Users/shawn/Cursor Projects/CDP7_17_1"
 command = "npm run build"
 
   [build.environment]
