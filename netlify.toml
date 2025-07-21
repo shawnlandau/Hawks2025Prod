@@ -1,0 +1,41 @@
+redirectsOrigin = "config"
+plugins = []
+headers = []
+
+[functions]
+
+  [functions."*"]
+
+[build]
+publish = "/Users/shawn/Cursor Projects/CDP7_17_1/build"
+publishOrigin = "config"
+commandOrigin = "config"
+base = "/Users/shawn/Cursor Projects/CDP7_17_1"
+command = "npm run build"
+
+  [build.environment]
+  NODE_VERSION = "18"
+
+  [build.processing]
+
+    [build.processing.css]
+
+    [build.processing.html]
+
+    [build.processing.images]
+
+    [build.processing.js]
+
+  [build.services]
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+force = false
+
+  [redirects.query]
+
+  [redirects.conditions]
+
+  [redirects.headers]
