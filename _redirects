@@ -1,4 +1,6 @@
 /health.html /health.html 200
 /debug.html /debug.html 200
 /test.html /test.html 200
+/error-handler.html /error-handler.html 200
+/index-fixed.html /index-fixed.html 200
 /*    /index.html   200 

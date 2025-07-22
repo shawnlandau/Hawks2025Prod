@@ -18,6 +18,16 @@
   status = 200
 
 [[redirects]]
+  from = "/error-handler.html"
+  to = "/error-handler.html"
+  status = 200
+
+[[redirects]]
+  from = "/index-fixed.html"
+  to = "/index-fixed.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
