@@ -6,13 +6,6 @@ headers = []
 
   [functions."*"]
 
-[build]
-publish = "/Users/shawn/Cursor Projects/CDP7_17_1/build"
-publishOrigin = "config"
-commandOrigin = "config"
-base = "/Users/shawn/Cursor Projects/CDP7_17_1"
-command = "npm run build"
-
   [build.environment]
   NODE_VERSION = "18"
 
