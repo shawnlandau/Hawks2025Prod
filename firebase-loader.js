@@ -24,42 +24,54 @@
                 return;
             }
 
-            // Load Firebase SDK
+            // Load Firebase SDK from CDN
             const script = document.createElement('script');
-            script.src = 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js';
+            script.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js';
             script.onload = function() {
                 console.log('Firebase SDK loaded');
                 
                 // Load Firebase Auth
                 const authScript = document.createElement('script');
-                authScript.src = 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js';
+                authScript.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js';
                 authScript.onload = function() {
                     console.log('Firebase Auth loaded');
                     
                     // Load Firestore
                     const firestoreScript = document.createElement('script');
-                    firestoreScript.src = 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js';
+                    firestoreScript.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js';
                     firestoreScript.onload = function() {
                         console.log('Firestore loaded');
                         
                         // Load Storage
                         const storageScript = document.createElement('script');
-                        storageScript.src = 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js';
+                        storageScript.src = 'https://www.gstatic.com/firebasejs/10.7.1/firebase-storage-compat.js';
                         storageScript.onload = function() {
                             console.log('Firebase Storage loaded');
                             initializeFirebase();
                             resolve();
                         };
-                        storageScript.onerror = reject;
+                        storageScript.onerror = function() {
+                            console.error('Failed to load Firebase Storage');
+                            reject(new Error('Firebase Storage failed to load'));
+                        };
                         document.head.appendChild(storageScript);
                     };
-                    firestoreScript.onerror = reject;
+                    firestoreScript.onerror = function() {
+                        console.error('Failed to load Firestore');
+                        reject(new Error('Firestore failed to load'));
+                    };
                     document.head.appendChild(firestoreScript);
                 };
-                authScript.onerror = reject;
+                authScript.onerror = function() {
+                    console.error('Failed to load Firebase Auth');
+                    reject(new Error('Firebase Auth failed to load'));
+                };
                 document.head.appendChild(authScript);
             };
-            script.onerror = reject;
+            script.onerror = function() {
+                console.error('Failed to load Firebase SDK');
+                reject(new Error('Firebase SDK failed to load'));
+            };
             document.head.appendChild(script);
         });
     }
@@ -98,5 +110,17 @@
         
     }).catch((error) => {
         console.error('Failed to load Firebase:', error);
+        
+        // Fallback: try to load React anyway
+        console.log('Attempting to load React without Firebase...');
+        const reactScript = document.createElement('script');
+        reactScript.src = '/static/js/main.822604f0.js';
+        reactScript.onload = function() {
+            console.log('React app loaded (without Firebase)');
+        };
+        reactScript.onerror = function() {
+            console.error('React app failed to load');
+        };
+        document.head.appendChild(reactScript);
     });
 })(); 
