@@ -1,13 +1,13 @@
 // Firebase Configuration - DEVELOPMENT/TESTING PROJECT
-// Replace these values with your new Firebase project configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "YOUR_NEW_API_KEY",
-  authDomain: "YOUR_NEW_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_NEW_PROJECT_ID",
-  storageBucket: "YOUR_NEW_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_NEW_SENDER_ID",
-  appId: "YOUR_NEW_APP_ID",
-  measurementId: "YOUR_NEW_MEASUREMENT_ID"
+  apiKey: "AIzaSyCouuChPSVEKmaxkw3f4r4-Xx-4vADiBWc",
+  authDomain: "hawksbaseballphotos-5bb61.firebaseapp.com",
+  projectId: "hawksbaseballphotos-5bb61",
+  storageBucket: "hawksbaseballphotos-5bb61.firebasestorage.app",
+  messagingSenderId: "1090003594150",
+  appId: "1:1090003594150:web:92ff02eb4fe204a67f7d67",
+  measurementId: "G-RS15QL2HJ0"
 };
 
 // Initialize Firebase
@@ -23,4 +23,4 @@ if (typeof firebase !== 'undefined') {
 // Export for use in other files
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = firebaseConfig;
-} 
+}
