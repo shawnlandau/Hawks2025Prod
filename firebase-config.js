@@ -1,17 +1,23 @@
-// Firebase Configuration
+// Firebase Configuration - DEVELOPMENT/TESTING PROJECT
+// Replace these values with your new Firebase project configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDbH17q1a0ft5udGpkfPsWPYb4G5Lb1jEU",
-  authDomain: "the-hawks-photo-app.firebaseapp.com",
-  projectId: "the-hawks-photo-app",
-  storageBucket: "the-hawks-photo-app.firebasestorage.app",
-  messagingSenderId: "315176217689",
-  appId: "1:315176217689:web:caa6f33189013a7fe5d548",
-  measurementId: "G-428LKBHM36"
+  apiKey: "YOUR_NEW_API_KEY",
+  authDomain: "YOUR_NEW_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_NEW_PROJECT_ID",
+  storageBucket: "YOUR_NEW_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_NEW_SENDER_ID",
+  appId: "YOUR_NEW_APP_ID",
+  measurementId: "YOUR_NEW_MEASUREMENT_ID"
 };
 
 // Initialize Firebase
 if (typeof firebase !== 'undefined') {
-  firebase.initializeApp(firebaseConfig);
+  try {
+    firebase.initializeApp(firebaseConfig);
+    console.log('Firebase initialized successfully with development config');
+  } catch (error) {
+    console.error('Firebase initialization error:', error);
+  }
 }
 
 // Export for use in other files
